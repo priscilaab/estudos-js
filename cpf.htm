@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falso Validador de CPF</title>
+</head>
+<body>
+    
+<p>
+    <label for="cpf">CPF: </label>
+    <input type="text" id="cpf" onkeyup="validarcpf()">
+</p>
+
+
+<hr>
+ 
+<p>
+    Resultado: <span id="resultado"></span>
+</p>
+
+
+<script>
+    function validarcpf() {
+    
+        if(cpf.value.length == 11){
+            resultado.innerHTML = "Válido!";
+            resultado.style.color = "#0f0";
+            cpf.style.backgroundColor = "#23AA89";
+        }else{
+            resultado.innerHTML = "Inválido!";
+            resultado.style.color = "red";
+            cpf.style.backgroundColor = "#f00";
+        }
+    }
+
+</script>
+
+</body>
+</html>

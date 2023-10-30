@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar dados</title>
+</head>
+
+<body>
+
+    <p>
+        <label for="nome">Nome: </label>
+        <input id="nome" name="nome" type="text">
+    </p>
+    <p>
+        <label for="idade">Idade: </label>
+        <input id="idade" name="idade" type="text">
+    </p>
+    <p>
+        <label for="endereço">Endereço: </label>
+        <input id="endereco" name="endereco" type="text">
+    </p>
+    <p>
+        <input type="button" value="Mostrar" onclick="mostrarDados()">
+    </p>
+
+    <hr>
+    <!-- Area onde será mostrados os dados -->
+    <p>Nome: <span id="rnome"></span></p>
+    <p>Idade: <span id="ridade"></span></p>
+    <p>Endereço: <span id="rendereco"></span></p>
+
+
+    <script>
+        function mostrarDados() {
+            rnome.innerHTML = nome.value;
+            ridade.innerHTML = idade.value;
+            rendereco.innerHTML = endereco.value;
+        }
+
+    </script>
+
+</body>
+
+</html>
