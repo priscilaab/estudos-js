@@ -67,10 +67,15 @@
             
             resultMedia.innerHTML = media;
 
+            resultMedia.innerHTML = media.tofixed(2); //mostrar 2 casas decimais
+
+            //if...else pra verificar se foi ou não aprovado:
             if(media >= 6){
-                resultado.innerHTML= "Aprovado!";
+                resultado.innerHTML = "Aprovado!";
+                resultado.style.color = "green";
             }else{
-                resultado.innerHTML= "Reprovado!";
+                resultado.innerHTML = "Reprovado!";
+                resultado.style.color = "red";
             }
         }
 
