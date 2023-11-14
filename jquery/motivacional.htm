@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Página Motivacional</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-center">
+                <img src="https://i.imgur.com/GFCJGK0.png" alt="Imagem Motivacional" class="img-fluid">
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <h2>Fique Motivadão</h2>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <blockquote class="blockquote text-center ">
+                    <p id="fraseDahora" class="font-weight-light font-italic display-4"></p>
+                </blockquote>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <button id="motivadao" class="btn btn-success btn-block">Me motive mais</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Importe o jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Seu código vai aqui:
+
+        $("#motivadao").on("click", function () {
+            $("#frase").hide();
+
+            var link = "https://apisenac.estevaorada.repl.co/api/motivacionais";
+            $.getJSON(link).done(function (dados) {
+                $("#fraseDahora").text(dados.frase).fadeOut(slow);
+            });
+           
+
+        });
+
+        $("#document").ready(function () {
+                $("#motivadao").trigger("click");
+            });
+
+
+
+    </script>
+
+</body>
+
+</html>

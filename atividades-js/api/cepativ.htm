@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CEP atividade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <p>
+                    <label for="cep1">
+                        <input type="text" id="cep" placeholder="Digite o seu CEP">
+                        <button type="button" class="btn btn-primary" onclick="buscarCep()">Buscar CEP</button>
+                    </label>
+                </p>
+
+
+            </div>
+
+
+
+            <div class="col-md-6">
+                <h2 class="text-center">Resultado:</h2>
+                <p class=>
+                    <!-- Aqui serão exibidas as respostas -->
+                    <strong>CEP:</strong><span id="rcep"></span><br>
+                    <strong>Logradouro:</strong><span id="rlogradouro"></span><br>
+                    <strong>Complemento:</strong><span id="rcomplemento"></span><br>
+                    <strong>Bairro:</strong><span id="rbairro"></span><br>
+                    <strong>Localidade:</strong><span id="rlocalidade"></span><br>
+                    <strong>UF:</strong><span id="ruf"></span><br>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script>
+
+
+
+        function buscarCep() {
+            var link = "https://viacep.com.br/ws/" + cep.value + "/json/";
+
+
+
+            fetch(link).then((resposta) => resposta.json()).then((dados) => {
+
+                rcep.innerHTML = dados.cep;
+                rlogradouro.innerHTML = dados.logradouro;
+                rcomplemento.innerHTML = dados.complemento;
+                rbairro.innerHTML = dados.bairro;
+                rlocalidade.innerHTML = dados.localidade;
+                ruf.innerHTML = dados.uf;
+
+            }
+            )
+        }
+
+        
+
+
+
+
+    </script>
+</body>
+
+</html>

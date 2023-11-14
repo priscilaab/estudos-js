@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel com jQuery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            min-height: 100px;
+            background-color: rgb(77, 72, 72);
+        }
+
+      
+
+        .botao {
+            justify-content: center;
+            margin: 20px;
+
+        }
+
+        .carrossel {
+            position: relative;
+            overflow: hidden;
+            width: 600px;
+            height: 500px;
+            background-image: url(img1.webp);
+            background-position: center;
+        }
+
+        .carrossel img {
+            position: absolute;
+            width: 1000%;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="carrossel">
+        <!--<div class="row">
+            <div class="col">
+                <img src="img/img1.webp" alt="imagem 1">
+                <img src="img/img2.png" alt="imagem 2">
+                <img src="img/img3.jpg" alt="imagem 3">
+                <img src="img/img5.jpg" alt="imagem 4">
+                <img src="img/img6.jpeg" alt="imagem 5">
+            </div>
+        </div>-->
+
+        <button id="anterior" class="btn btn-danger btn-block">Anterior</button>
+        <button id="proximo" class="btn btn-danger btn-block">Próximo</button>
+
+
+    </div>
+
+
+
+    < <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+
+
+            var imagem = 0;
+            var i = ["img1.webp", "img2.png", "img3.jpg", "img5.jpg", "img6.jpeg"]
+
+            $("#proximo").on("click", function () {
+                i++;
+                if (i == imagem.length ) {
+                    i = 0;
+                }
+                $(".carrossel").css("background-image", "url(img/" + imagem[i] + ")").hide().fadeIn();
+            });
+
+           
+
+            $("#anterior").on("click", function () {
+                i--;
+                if (i == --1);
+                i = imagem.length;
+
+                $(".carrossel").css("background-image", "url(img/" + imagem[i] + ")").hide().fadeIn();
+
+            });
+
+
+
+        </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo jQuery</title>
+
+    <style>
+        .formato {
+            background-color: blueviolet;
+            text-decoration: solid;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="img/foto1.png" alt="foto1" id="exemplo">
+    <h1 id="texto1"> Texto 1</h1>
+    <h1 id="texto2"> Texto 2</h1>
+    <p class="paragrafo1">Texto do parágrafo primeiro.</p>
+    <p class="paragrafo2">Texto do parágrafo segundo.</p>
+    <button id="botao">Clique-me!</button>
+    <input type="text" id="entrada">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        // Ao invés de por o event de onclick la no button e abrir uma fuction no script como no JavaScript:
+        /*  $("#botao").on("click", function () {
+              $("#texto1").text("Mudei o texto hahahaha").addClass('formato');
+              //$("#texto2").fadeOut("slow");
+              /* Exemplo de como dar o valor da propriedade
+                  $("#texto2").fadeOut(5000);
+                  #(hashtag) quando é um ID, .(ponto) quando é uma class */
+        // $('.paragrafo').text("Texto Novo");
+        //  $("#texto2").css('background-color','red');
+        // Obter o valor de #entrada:
+        // var x = $("#entrada").val();
+        // alert(x);
+        //  });
+
+        // Exemplo de mudança de atributo com a ação attr:
+        var cliques = 0;
+
+        $("#botao").on("click", function(){
+            if (cliques == 0){
+                $("#exemplo").attr("src" , "img/foto2.png");
+                cliques++;
+            } else if (cliques == 1){
+                $("#exemplo").attr("src" , "img/foto1.png");
+                cliques--;
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

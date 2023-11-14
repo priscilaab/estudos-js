@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora do Amor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Calculadora do Amor</h1>
+        <div class="row">
+            <div class="col-md-7">
+                <blockquote class="blockquote">
+                    <br>
+                    <br>
+                    <p class="mb-0" id="par">
+
+                        <label for="parceiro1">
+                            <input type="text" id="parceiro1" placeholder="Nome do parceiro 1">
+                        </label>
+                    </p>
+                    <br>
+                    <p>
+                        <label for="parceiro2">
+                            <input type="text" id="parceiro2" placeholder="Nome do parceiro 2">
+                        </label>
+                    </p>
+                    <br>
+                </blockquote>
+                <button id="match" class="btn btn-danger btn-block mt-2" onclick="resultado()">Cacular MATCH</button>
+            </div>
+
+            <div class="col-md-5">
+                <h2 class="text-center"></h2>
+                <br>
+                <br>
+                <p class="result">
+                    <!-- Aqui serão exibidas as respostas -->
+                    <strong>Combinação:</strong><span id="rcombinacao"></span><br>
+                    <br>
+                    <strong>Porcentagem de Amor:</strong><span id="rporcentagem"></span><br>
+                    <br>
+                    <strong>Sugestão:</strong><span id="rsugestao"></span><br>
+                    <br>
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // O código irá aqui:
+        function resultado() {
+            var link = "https://apisenac.estevaorada.repl.co/api/amor/" +parceiro1.value+ "/" +parceiro2.value;
+
+           
+
+            fetch(link).then((resposta) => resposta.json()).then((dados) => {
+
+                rcombinacao.innerHTML = dados.combinacao;
+                rporcentagem.innerHTML = dados.porcentagemAmor;
+                rsugestao.innerHTML = dados.sugestao;
+            }
+            )
+        }
+
+//cons nome1 = parceiro1.value;
+
+
+
+
+    </script>
+</body>
+
+</html>

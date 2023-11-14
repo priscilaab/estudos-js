@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase Inspiradora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 100px;
+            min-height: 100px;
+        }
+        .col{
+            margin-top: 50px;
+            justify-content: center;
+        }
+        .inspiracao{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <div class="row">
+            <label for="pensadores" class="inspiracao">Escolha um Pensador Famoso:</label>
+            <select class="form-control" id="pensadores" aria-label="Large select example">
+
+
+
+            </select>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 class="font-weight-light font-italic display-4" id="frasePensador">Frase Inspiradora</h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Executar assim que a página carregar:
+        $(document).ready(function () {
+            var link = "https://apisenac.estevaorada.repl.co/api/autores";
+            $.getJSON(link).done(function (dados) {
+                $("#pensadores").html("<option value=\"0\">" + dados[0] + "</option>" +
+                    "<option value=\"1\">" + dados[1] + "</option>" +
+                    "<option value=\"2\">" + dados[2] + "</option>" +
+                    "<option value=\"3\">" + dados[3] + "</option>");
+            })
+
+        });
+        
+        // Comando executado quando o select mudar:
+      $("#pensadores").on("change", function(){
+        var link = "https://apisenac.estevaorada.repl.co/api/autores/" + pensadores.value;
+        $.getJSON(link).done(function(dados){
+            $("#frasePensador").text(dados.frase);
+        })
+      });
+        
+      
+      
+      // Comando executado quando o select mudar:
+       /* $("#pensadores").on("change", function () {
+            if (pensadores.value == 0) {
+                var link = "https://apisenac.estevaorada.repl.co/api/autores/0";
+                $.getJSON(link).done(function (dados) {
+                    $("#frasePensador").text(dados.frase);
+                })
+            } else if (pensadores.value == 1) {
+                var link = "https://apisenac.estevaorada.repl.co/api/autores/1";
+                $.getJSON(link).done(function (dados) {
+                    $("#frasePensador").text(dados.frase);
+                })
+            } else if (pensadores.value == 2) {
+                var link = "https://apisenac.estevaorada.repl.co/api/autores/2";
+                $.getJSON(link).done(function (dados) {
+                    $("#frasePensador").text(dados.frase);
+                })
+            } else if (pensadores.value == 3) {
+                var link = "https://apisenac.estevaorada.repl.co/api/autores/3";
+                $.getJSON(link).done(function (dados) {
+                    $("#frasePensador").text(dados.frase);
+                })
+            }
+
+        })*/
+    
+         
+   
+
+    </script>
+
+
+</body>
+
+</html>

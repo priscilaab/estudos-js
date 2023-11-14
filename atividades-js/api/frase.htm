@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Predestinado</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">O Predestinado</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <blockquote class="blockquote">
+                    <p class="mb-0" id="frasefilme"></p>
+                    <footer class="blockquote-footer" id="nomefilme"></footer>
+                </blockquote>
+                <button id="novaFrase" class="btn btn-primary btn-block mt-2" onclick="obterFrase()">Nova Frase</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // O código irá aqui:
+
+        function obterFrase() {
+            var link = "https://apisenac.estevaorada.repl.co/api/intro";
+            fetch(link).then((resposta) => resposta.json()).then((dados) =>{
+                //alert(dados.frase);
+                frasefilme.innerHTML = dados.frase;
+                //document.getElementById('nomefilme').innerHTML = dados.filme;
+                nomefilme.innerHTML = dados.filme;
+            }
+            )
+        }
+
+        // Executar a função quando a página estiver carregada:
+        //document.onload = function () {obterFrase;}
+            document.onload = obterFrase();
+
+
+
+    </script>
+</body>
+
+</html>

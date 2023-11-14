@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racionais MC's</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Racionais MC's</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <blockquote class="blockquote">
+                    <p class="mb-0" id="fraseMusica"></p>
+                    <footer class="blockquote-footer" id="nomeAutor"></footer>
+                </blockquote>
+                <button id="novaFrase" class="btn btn-primary btn-block mt-2" onclick="obterFrase()">Nova Frase</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // O código irá aqui:
+
+        function obterFrase() {
+            // Desativar o botão:
+            novaFrase.disabled = true;
+            var link = "https://apisenac.estevaorada.repl.co/api/frase";
+            fetch(link).then((resposta) => resposta.json()).then((dados) => {
+
+                fraseMusica.innerHTML = dados.frase;
+
+                nomeAutor.innerHTML = dados.autor;
+            }
+            ).then(() => {
+                // Reativar o botão
+                novaFrase.disabled = false;
+            }
+            )
+        }
+
+
+
+        // Executar a função quando a página estiver carregada:
+
+        document.onload = obterFrase();
+
+
+            /* de outro exercicio:
+            rparceiro1.innerHTML = dados.nome1;
+                rparceiro2.innerHTML = dados.nome2;
+                 var fulano = parceiro1.value;
+            var fulana = parceiro2.value;*\
+
+
+    </script>
+</body>
+
+</html>
